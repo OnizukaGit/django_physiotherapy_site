@@ -1,0 +1,210 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+  <head>
+     <title>Fizjoterapia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Rubik:400,700' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static '/fonts/icomoon/style.css'%}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rangeslider.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  </head>
+  <body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-11 col-xl-4">
+            <h1 class="mb-0 site-logo"><a href="{% url 'start' %}" class="text-white mb-0">Strona Główna<span class="text-primary">.</span> </a></h1>
+          </div>
+          <div class="col-12 col-md-8 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+
+
+                <li class="has-children">
+                </li>
+                <li><a href="{% url 'Page1' %}"><span>Fizykoterapia</span></a></li>
+                <li><a href="{% url 'Page2' %}"><span>Terapia Chiropraktyczna</span></a></li>
+                <li><a href="{% url 'Page3' %}"><span>Terapia Masażem</span></a></li>
+              </ul>
+            </nav>
+
+          </div>          </div>
+
+        
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+
+
+
+
+    <div class="site-blocks-cover overlay" style="background-image: url({% static 'images/fiz_1.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+
+          <div class="col-md-10">
+
+            <div class="row justify-content-center mb-4">
+              <div class="col-md-10 text-center">
+
+                {% if user.is_authenticated %}
+                <h1 data-aos="fade-up" class="mb-5">Witaj {{user}}<span class="typed-words"></span></h1>
+                  <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'Logout' %}" class="btn btn-primary btn-pill">Wyloguj</a></p>
+                {% else %}
+                <h1 data-aos="fade-up" class="mb-5">Uwolnij się od: <span class="typed-words"></span></h1>
+                <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'Login' %}" class="btn btn-primary btn-pill">Zaloguj</a></p>
+                {% endif %}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+
+            <img src="{% static 'images/terapia1.jpg' %}" alt="Image" class="img-fluid rounded mb-3">
+
+          </div>
+          <div class="col-md-5 ml-auto">
+            <h2 class="text-primary mb-3">Informacje</h2>
+            <p class="lead">Fizykoterapia to rodzaj rehabilitacji medycznej, typ fizjoterapii. Podczas fizykoterapii wykorzystuje się w celach leczniczych zjawiska fizyczne takie jak prąd elektryczny, światło, magnetyzm, ultradźwięki oraz niską temperaturę i oddziałuje za ich pomocą na zmienione chorobowe miejsca. Celem fizykoterapii jest usprawnienie mięśni po urazach, na przykład złamaniach oraz uśmierzenie bólu, a co za tym idzie poprawa komfortu życia w przewlekłych schorzeniach.</p>
+
+            <ul class="ul-check list-unstyled success">
+              <li>Pole magnetyczne</li>
+              <li>Terapia zimnem </li>
+              <li>Ultradźwięki</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                <h2 class="footer-heading mb-4">Linki</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#">O nas</a></li>
+                  <li><a href="#">Wybór</a></li>
+                  <li><a href="#">Kontakt</a></li>
+                </ul>
+              </div>
+
+              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                <h2 class="footer-heading mb-4">Śledź nas</h2>
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <h2 class="footer-heading mb-4">Bądź Na Bieżąco</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <form action="#" method="post" class="subscription">
+              <div class="input-group mb-3  d-flex align-items-stretch">
+                <input type="text" class="form-control bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5">
+          <div class="col-12 text-md-center text-left">
+
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+
+  <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/rangeslider.min.js' %}"></script>
+
+
+  <script src="{% static 'js/typed.js' %}"></script>
+            <script>
+            var typed = new Typed('.typed-words', {
+              {% if user.is_authenticated %}
+            strings: [""],
+                    {% else %}
+            strings: [" stresu"," bólu"," złego samopoczucia"],
+                    {% endif %}
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 3000,
+            startDelay: 1000,
+            loop: true,
+            showCursor: true
+            });
+            </script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>
