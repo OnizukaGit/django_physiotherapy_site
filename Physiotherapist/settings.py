@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    "crispy_bootstrap4",
     'Physiotherapist_project',
 
 ]
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'physiotherapist_db',
         'USER': 'postgres',
-        'PASSWORD': 'coderslab',
+        'PASSWORD': 'ambrozja',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
