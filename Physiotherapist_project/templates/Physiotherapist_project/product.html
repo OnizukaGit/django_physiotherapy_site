@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>product-queryset</title>
-</head>
+{% extends "basic.html" %}
 <body>
+{% block content %}
+
 <option value="">---------</option>
 {% for pro in product %}
-<option value="{{ pro.pk }}">{{ pro.name_of_product }}</option>
+    <option value="{{ pro.pk }}">{{ pro.name_of_product }}</option>
 {% endfor %}
 </body>
+{% endblock %}
 </html>

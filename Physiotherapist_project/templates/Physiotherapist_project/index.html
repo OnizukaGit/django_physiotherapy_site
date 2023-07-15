@@ -1,404 +1,297 @@
-
+{% extends "basic.html" %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
-
-{% load static %}
-  <head>
-    <title>Fizjoterapia</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-
-    <link href="{% static 'https://fonts.googleapis.com/css?family=Rubik:400,700' %}" rel="stylesheet">
-
-    <link rel="stylesheet" href="{% static '/fonts/icomoon/style.css'%}">
-
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
-
-    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
-    <link rel="stylesheet" href="{% static 'css/rangeslider.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
-  </head>
-  <body>
-  
-  <div class="site-wrap">
-
+<body>
+{% block content %}
+<div class="site-wrap">
     <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
         </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
+        <div class="site-mobile-menu-body"></div>
     </div>
-
     <header class="site-navbar" role="banner">
-
-      <div class="container">
-                   <div class="block-quick-info-2">
-
-        <div class="row align-items-center">
-
-          <div class="col-11 col-xl-4">
-                        <h1 class="mb-0 site-logo"><a href="{% url 'start' %}" class="text-white mb-0">Fizjoterapia<span class="text-primary">.</span> </a></h1>
-
-            <h1 class="mb-0 site-logo"><a href="{% url 'start' %}" class="text-white mb-0"><span class="text-primary"></span> </a></h1>
-          </div>
-
-          <div class="col-12 col-md-8 d-none d-xl-block">
-
-            <nav class="site-navigation position-relative text-right" role="navigation">
-
-              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-
-                {% if user.is_authenticated %}
-
-                <li><a href="{% url 'UsersPanel' user.username %}">
-                                                                  {% if messages %}
-<div class="text-white mb-0">
-    {% for message in messages %}
-{{ message }}
-    {% endfor %}
-</div>
-{% endif %}Twoje wizyty &nbsp;</a></li>
-                <li><a href="{% url 'Booking' %}">  Umów się na wizytę</a></li>
-                {% else %}
-                <li><a href="{% url 'Login' %}">Umów się na wizytę</a></li>
-                {% endif %}
-                <li><a href="#price-list"><span>Cennik</span></a></li>
-                <li><a href="#about">O nas</a></li>
-                <li><a href="#contact"><span>Kontakt</span></a></li>
-              </ul>
-
-            </nav>
-
-          </div>
-
-
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
-
-          </div>
-
+        <div class="container">
+            <div class="block-quick-info-2">
+                <div class="row align-items-center">
+                    <div class="col-11 col-xl-4">
+                        <h1 class="mb-0 site-logo"><a href="{% url 'start' %}" class="text-white mb-0">Fizjoterapia<span
+                                class="text-primary">.</span> </a></h1>
+                        <h1 class="mb-0 site-logo"><a href="{% url 'start' %}" class="text-white mb-0"><span
+                                class="text-primary"></span> </a></h1>
+                    </div>
+                    <div class="col-12 col-md-8 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                                {% if user.is_authenticated %}
+                                    <li><a href="{% url 'UsersPanel' user.username %}">
+                                        {% if messages %}
+                                            <div class="text-white mb-0">
+                                                {% for message in messages %}
+                                                    {{ message }}
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}Twoje wizyty &nbsp;</a></li>
+                                    <li><a href="{% url 'Booking' %}"> Umów się na wizytę</a></li>
+                                {% else %}
+                                    <li><a href="{% url 'Login' %}">Umów się na wizytę</a></li>
+                                {% endif %}
+                                <li><a href="#price-list"><span>Cennik</span></a></li>
+                                <li><a href="#about">O nas</a></li>
+                                <li><a href="#contact"><span>Kontakt</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a
+                            href="#" class="site-menu-toggle js-menu-toggle text-white"><span
+                            class="icon-menu h3"></span></a></div>
+                </div>
+            </div>
         </div>
-      </div>
-
-
-
-</div>
-
     </header>
-
-
-
-  
-
-    <div class="site-blocks-cover overlay" style="background-image: url({% static 'images/hero_bg_1.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row align-items-center justify-content-center text-center">
-
-          <div class="col-md-10">
-            
-            <div class="row justify-content-center mb-4">
-              <div class="col-md-10 text-center">
-
-                {% if user.is_authenticated %}
-                <h1 data-aos="fade-up" class="mb-5">Witaj {{user}}<span class="typed-words"></span></h1>
-                  <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'Logout' %}" class="btn btn-primary btn-pill">Wyloguj</a></p>
-                {% else %}
-                <h1 data-aos="fade-up" class="mb-5">Uwolnij się od: <span class="typed-words"></span></h1>
-                <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'Login' %}" class="btn btn-primary btn-pill">Zaloguj</a></p>
-                {% endif %}
-              </div>
+    <div class="site-blocks-cover overlay" style="background-image: url({% static 'images/hero_bg_1.jpg' %});"
+         data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-md-10">
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-md-10 text-center">
+                            {% if user.is_authenticated %}
+                                <h1 data-aos="fade-up" class="mb-5">Witaj {{ user }}<span class="typed-words"></span>
+                                </h1>
+                                <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'Logout' %}"
+                                                                              class="btn btn-primary btn-pill">Wyloguj</a>
+                                </p>
+                            {% else %}
+                                <h1 data-aos="fade-up" class="mb-5">Uwolnij się od: <span class="typed-words"></span>
+                                </h1>
+                                <p data-aos="fade-up" data-aos-delay="100"><a href="{% url 'Login' %}"
+                                                                              class="btn btn-primary btn-pill">Zaloguj</a>
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <a name="contact"></a>
+                </div>
             </div>
-<a name="contact"></a>
-          </div>
         </div>
-      </div>
-
-    </div>  
-
-
-
+    </div>
     <div class="block-quick-info-2">
-      <div class="container">
-        <div class="block-quick-info-2-inner">
-          <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
-              <div class="d-flex quick-info-2">
-                <span class="icon icon-home mr-3"></span>
-                <div class="text">
-                  <strong class="d-block heading">Nasza Placówka</strong>
-                  <span class="excerpt">43-214 Wrocław Szczęśliwa 3/12</span>
+        <div class="container">
+            <div class="block-quick-info-2-inner">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
+                        <div class="d-flex quick-info-2">
+                            <span class="icon icon-home mr-3"></span>
+                            <div class="text">
+                                <strong class="d-block heading">Nasza Placówka</strong>
+                                <span class="excerpt">43-214 Wrocław Szczęśliwa 3/12</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
+                        <div class="d-flex quick-info-2">
+                            <span class="icon icon-phone mr-3"></span>
+                            <div class="text">
+                                <strong class="d-block heading">Kontakt telefoniczny</strong>
+                                <span class="excerpt">+48 12345678</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
+                        <div class="d-flex quick-info-2">
+                            <span class="icon icon-envelope mr-3"></span>
+                            <div class="text">
+                                <strong class="d-block heading">E-mail</strong>
+                                <span class="excerpt"><a href="https://tiny.pl/wgrv7">physiotherapy@gmail.com</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
+                        <div class="d-flex quick-info-2">
+                            <span class="icon icon-clock-o mr-3"></span>
+                            <div class="text">
+                                <strong class="d-block heading">Czynne od</strong>
+                                <span class="excerpt">Pon-Pt 6:00 - 18:30</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
-              <div class="d-flex quick-info-2">
-                <span class="icon icon-phone mr-3"></span>
-                <div class="text">
-                  <strong class="d-block heading">Kontakt telefoniczny</strong>
-                  <span class="excerpt">+48 12345678</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
-              <div class="d-flex quick-info-2">
-                <span class="icon icon-envelope mr-3"></span>
-                <div class="text">
-                  <strong class="d-block heading">E-mail</strong>
-                  <span class="excerpt"><a href="https://tiny.pl/wgrv7">physiotherapy@gmail.com</a></span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-lg-0">
-              <div class="d-flex quick-info-2">
-                <span class="icon icon-clock-o mr-3"></span>
-                <div class="text">
-                  <strong class="d-block heading">Czynne od</strong>
-                  <span class="excerpt">Pon-Pt 6:00 - 18:30</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
         </div>
-      </div>
     </div>
-    <a name="price-list"></a>
-    <div class="block-services-1 py-5">
-      <div class="container">
+</div>
+<a name="price-list"></a>
+<div class="block-services-1 py-5">
+    <div class="container">
         <div class="row">
-          <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
-            <h3 class="mb-3">Co oferujemy</h3>
-            <p>Nasza klinika zapewnia każdą pomoc dla kręgosłupa. Nasz wykwalifikowany personel pomoże Ci z każdym problemem. Kliknij i sprawdź.</p>
-            <p><a href="#" class="d-inline-flex align-items-center block-service-1-more"><span> </span> <span></span></a></p>
-          </div>
-          <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
-            <div class="block-service-1-card">
-              <a href="{% url 'Page1' %}" class="thumbnail-link d-block mb-4"><img src=" {% static 'images/img_1.jpg' %} " alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3">Fizykoterapia</h3>
-              <div class="block-service-1-excerpt"><p>Sesja dzienna / miesięczna: 120 zł / 1200 zł </p></div>
-              <p><a href="{% url 'Page1' %}" class="d-inline-flex align-items-center block-service-1-more"><span>Przeczytaj zanim kupisz</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+            <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
+                <h3 class="mb-3">Co oferujemy</h3>
+                <p>Nasza klinika zapewnia każdą pomoc dla kręgosłupa. Nasz wykwalifikowany personel pomoże Ci z każdym
+                    problemem. Kliknij i sprawdź.</p>
+                <p><a href="#" class="d-inline-flex align-items-center block-service-1-more"><span> </span>
+                    <span></span></a></p>
             </div>
-          </div>
-          <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
-            <div class="block-service-1-card">
-              <a href="{% url 'Page2' %}" class="thumbnail-link d-block mb-4"><img src="{% static 'images/hero_bg_3.jpg' %}" alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3">Terapia Chiropraktyczna</h3>
-              <div class="block-service-1-excerpt"><p>Sesja dzienna / miesięczna: 521 zł / 6000 zł </p></div>
-              <p><a href="{% url 'Page2' %}" class="d-inline-flex align-items-center block-service-1-more"><span>Przeczytaj zanim kupisz</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+            <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
+                <div class="block-service-1-card">
+                    <a href="{% url 'Page1' %}" class="thumbnail-link d-block mb-4"><img
+                            src=" {% static 'images/img_1.jpg' %} " alt="Image" class="img-fluid"></a>
+                    <h3 class="block-service-1-heading mb-3">Fizykoterapia</h3>
+                    <div class="block-service-1-excerpt"><p>Sesja dzienna / miesięczna: 120 zł / 1200 zł </p></div>
+                    <p><a href="{% url 'Page1' %}" class="d-inline-flex align-items-center block-service-1-more"><span>Przeczytaj zanim kupisz</span>
+                        <span class="icon-keyboard_arrow_right icon"></span></a></p>
+                </div>
             </div>
-          </div>
-          <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
-            <div class="block-service-1-card">
-              <a href="{% url 'Page3' %}" class="thumbnail-link d-block mb-4"><img src="{% static 'images/img_3.jpg' %}" alt="Image" class="img-fluid"></a>
-              <h3 class="block-service-1-heading mb-3">Terapia Masażem</h3>
-              <div class="block-service-1-excerpt"><p>Sesja dzienna / miesięczna: 100 zł / 900 zł </p></div>
-              <p><a href="{% url 'Page3' %}" class="d-inline-flex align-items-center block-service-1-more"><span>Przeczytaj zanim kupisz</span> <span class="icon-keyboard_arrow_right icon"></span></a></p>
+            <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
+                <div class="block-service-1-card">
+                    <a href="{% url 'Page2' %}" class="thumbnail-link d-block mb-4"><img
+                            src="{% static 'images/hero_bg_3.jpg' %}" alt="Image" class="img-fluid"></a>
+                    <h3 class="block-service-1-heading mb-3">Terapia Chiropraktyczna</h3>
+                    <div class="block-service-1-excerpt"><p>Sesja dzienna / miesięczna: 521 zł / 6000 zł </p></div>
+                    <p><a href="{% url 'Page2' %}" class="d-inline-flex align-items-center block-service-1-more"><span>Przeczytaj zanim kupisz</span>
+                        <span class="icon-keyboard_arrow_right icon"></span></a></p>
+                </div>
             </div>
-          </div>
+            <div class="mb-4 mb-lg-0 col-sm-6 col-md-6 col-lg-3">
+                <div class="block-service-1-card">
+                    <a href="{% url 'Page3' %}" class="thumbnail-link d-block mb-4"><img
+                            src="{% static 'images/img_3.jpg' %}" alt="Image" class="img-fluid"></a>
+                    <h3 class="block-service-1-heading mb-3">Terapia Masażem</h3>
+                    <div class="block-service-1-excerpt"><p>Sesja dzienna / miesięczna: 100 zł / 900 zł </p></div>
+                    <p><a href="{% url 'Page3' %}" class="d-inline-flex align-items-center block-service-1-more"><span>Przeczytaj zanim kupisz</span>
+                        <span class="icon-keyboard_arrow_right icon"></span></a></p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
+</div>
 
-    <div class="block-half-content-1 d-block d-lg-flex mt-5">
-      <div class="block-half-content-img" style="background-image: url({% static 'images/hero_bg_1.jpg' %})">
+<div class="block-half-content-1 d-block d-lg-flex mt-5">
+    <div class="block-half-content-img" style="background-image: url({% static 'images/hero_bg_1.jpg' %})">
         <a name="about"></a>
-      </div>
-      <div class="block-half-content-text bg-primary">
+    </div>
+    <div class="block-half-content-text bg-primary">
         <div class="block-half-content-text-inner">
-          <h2 class="block-half-content-heading mb-4">Dlaczego właśnie my</h2>
-          <div class="block-half-content-excerpt">
-          <p class="lead">Jesteśmy najlepsi i tyle. Konkurencja? Jaka konkurencja? My jej nie mamy.</p>
-          </div>
+            <h2 class="block-half-content-heading mb-4">Dlaczego właśnie my</h2>
+            <div class="block-half-content-excerpt">
+                <p class="lead">Jesteśmy najlepsi i tyle. Konkurencja? Jaka konkurencja? My jej nie mamy.</p>
+            </div>
         </div>
 
         <div class="block-counter-1 section-counter">
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="counter">
-                <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="3">0</span><span class="append">K</span>
-                </div>
-                <span class="block-counter-1-caption">Nasi zadowoleni pacjenci</span>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="counter">
-                <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="7">0</span><span class="append
-"></span>
-                </div>
-                <span class="block-counter-1-caption">Lata Doświadczenia</span>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="counter">
-                <div class="number-wrap">
-                  <span class="block-counter-1-number" data-number="100">0</span><span class="append">%</span>
-                </div>
-                <span class="block-counter-1-caption">Satyswakcja</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-12 text-center">
-            <h2 class="site-section-heading text-center font-secondary">Nasi Specjaliści</h2>
-          </div>
-        </div>
-        <div class="row">
-
-          <div class="col-12">
-
-            <div class="owl-carousel-2 owl-carousel">
-
-              <div class="d-block block-testimony mx-auto text-center">
-                <div class="person w-25 mx-auto mb-4">
-                  <img src="{% static 'images/person_1.jpg' %}" alt="Image" class="img-fluid rounded-circle w-50 mx-auto">
-                </div>
-                <div>
-                  <h2 class="h5 mb-4">Elżbieta Kocioł</h2>
-                  <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
-                </div>
-              </div>
-
-              <div class="d-block block-testimony mx-auto text-center">
-                <div class="person w-25 mx-auto mb-4">
-                  <img src="{% static 'images/person_2.jpg' %}" alt="Image" class="img-fluid rounded-circle w-50 mx-auto">
-                </div>
-                <div>
-                  <h2 class="h5 mb-4">Wojciech Kałamaga</h2>
-                  <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
-                </div>
-              </div>
-
-              <div class="d-block block-testimony mx-auto text-center">
-                <div class="person w-25 mx-auto mb-4">
-                  <img src="{% static 'images/person_3.jpg' %}" alt="Image" class="img-fluid rounded-circle w-50 mx-auto">
-                </div>
-                <div>
-                  <h2 class="h5 mb-4">Marcin Wentyl</h2>
-                  <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
-                </div>
-              </div>
-
-              <div class="d-block block-testimony mx-auto text-center">
-                <div class="person w-25 mx-auto mb-4">
-                  <img src="{% static 'images/person_4.jpg' %}" alt="Image" class="img-fluid rounded-circle w-50 mx-auto">
-                </div>
-                <div>
-                  <h2 class="h5 mb-4">Jakub Niewierny</h2>
-                  <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora ipsam!&rdquo;</blockquote>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-          
-
-        </div>
-      </div>
-    </div>
-
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
             <div class="row">
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Linki</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">O nas</a></li>
-                  <li><a href="#">Wybór</a></li>
-                  <li><a href="#">Kontakt</a></li>
-                </ul>
-              </div>
-
-              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
-                <h2 class="footer-heading mb-4">Śledź nas</h2>
-                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-
-              </div>
+                <div class="col-sm-4">
+                    <div class="counter">
+                        <div class="number-wrap">
+                            <span class="block-counter-1-number" data-number="3">0</span><span class="append">K</span>
+                        </div>
+                        <span class="block-counter-1-caption">Nasi zadowoleni pacjenci</span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="counter">
+                        <div class="number-wrap">
+                            <span class="block-counter-1-number" data-number="7">0</span><span class="append
+"></span>
+                        </div>
+                        <span class="block-counter-1-caption">Lata Doświadczenia</span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="counter">
+                        <div class="number-wrap">
+                            <span class="block-counter-1-number" data-number="100">0</span><span class="append">%</span>
+                        </div>
+                        <span class="block-counter-1-caption">Satyswakcja</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-3">
-            <h2 class="footer-heading mb-4">Bądź Na Bieżąco</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <form action="#" method="post" class="subscription">
-              <div class="input-group mb-3  d-flex align-items-stretch">
-                <input type="text" class="form-control bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
-              </div>
-            </form>
-          </div>
         </div>
-        <div class="row pt-5 mt-5">
-          <div class="col-12 text-md-center text-left">
+    </div>
+</div>
 
-          </div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12 text-center">
+                <h2 class="site-section-heading text-center font-secondary">Nasi Specjaliści</h2>
+            </div>
         </div>
-      </div>
-    </footer>
-  </div>
+        <div class="row">
 
-  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
-  <script src="{% static 'js/jquery-ui.js' %}"></script>
-  <script src="{% static 'js/popper.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
-  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
-  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
-  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+            <div class="col-12">
 
-  <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
-  <script src="{% static 'js/aos.js' %}"></script>
-  <script src="{% static 'js/rangeslider.min.js' %}"></script>
-  
+                <div class="owl-carousel-2 owl-carousel">
 
-  <script src="{% static 'js/typed.js' %}"></script>
-            <script>
-            var typed = new Typed('.typed-words', {
-              {% if user.is_authenticated %}
-            strings: [""],
-                    {% else %}
-            strings: [" stresu"," bólu"," złego samopoczucia"],
-                    {% endif %}
-            typeSpeed: 80,
-            backSpeed: 80,
-            backDelay: 3000,
-            startDelay: 1000,
-            loop: true,
-            showCursor: true
-            });
-            </script>
+                    <div class="d-block block-testimony mx-auto text-center">
+                        <div class="person w-25 mx-auto mb-4">
+                            <img src="{% static 'images/person_1.jpg' %}" alt="Image"
+                                 class="img-fluid rounded-circle w-50 mx-auto">
+                        </div>
+                        <div>
+                            <h2 class="h5 mb-4">Elżbieta Kocioł</h2>
+                            <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                                accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora
+                                ipsam!&rdquo;
+                            </blockquote>
+                        </div>
+                    </div>
 
-  <script src="{% static 'js/main.js' %}"></script>
-  
-  </body>
+                    <div class="d-block block-testimony mx-auto text-center">
+                        <div class="person w-25 mx-auto mb-4">
+                            <img src="{% static 'images/person_2.jpg' %}" alt="Image"
+                                 class="img-fluid rounded-circle w-50 mx-auto">
+                        </div>
+                        <div>
+                            <h2 class="h5 mb-4">Wojciech Kałamaga</h2>
+                            <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                                accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora
+                                ipsam!&rdquo;
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <div class="d-block block-testimony mx-auto text-center">
+                        <div class="person w-25 mx-auto mb-4">
+                            <img src="{% static 'images/person_3.jpg' %}" alt="Image"
+                                 class="img-fluid rounded-circle w-50 mx-auto">
+                        </div>
+                        <div>
+                            <h2 class="h5 mb-4">Marcin Wentyl</h2>
+                            <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                                accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora
+                                ipsam!&rdquo;
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <div class="d-block block-testimony mx-auto text-center">
+                        <div class="person w-25 mx-auto mb-4">
+                            <img src="{% static 'images/person_4.jpg' %}" alt="Image"
+                                 class="img-fluid rounded-circle w-50 mx-auto">
+                        </div>
+                        <div>
+                            <h2 class="h5 mb-4">Jakub Niewierny</h2>
+                            <blockquote>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                                accusantium qui optio, possimus necessitatibus voluptate aliquam velit nostrum tempora
+                                ipsam!&rdquo;
+                            </blockquote>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
 </html>

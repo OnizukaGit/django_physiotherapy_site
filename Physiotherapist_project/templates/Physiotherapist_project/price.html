@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>price-queryset</title>
-</head>
+{% extends "basic.html" %}
 <body>
+{% block content %}
+
 {% for pri in price %}
-<option value="{{ pri.pk }}">{{ pri.value }}</option>
+    <option value="{{ pri.pk }}">{{ pri.value }}</option>
 {% endfor %}
+{% endblock %}
 </body>
 </html>

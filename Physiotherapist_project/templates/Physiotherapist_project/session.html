@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>session-queryset</title>
-</head>
+{% extends "basic.html" %}
 <body>
+{% block content %}
 <option value="">---------</option>
 {% for ses in session %}
-<option value="{{ ses.pk }}">{{ ses.name_of_session }}</option>
+    <option value="{{ ses.pk }}">{{ ses.name_of_session }}</option>
 {% endfor %}
+{% endblock %}
 </body>
 </html>
