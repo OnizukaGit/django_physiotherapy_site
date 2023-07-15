@@ -1,4 +1,4 @@
-#!/home/kamil/Pulpit/Physiotherapy_site/bin/python
+#!/home/kamil/Pulpit/bookr_project/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

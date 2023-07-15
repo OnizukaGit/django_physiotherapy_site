@@ -36,7 +36,7 @@
                                                 {% endfor %}
                                             </div>
                                         {% endif %}Twoje wizyty &nbsp;</a></li>
-                                    <li><a href="{% url 'Booking' %}"> Umów się na wizytę</a></li>
+                                    <li><a href="{% url 'Booking' user.pk %}"> Umów się na wizytę</a></li>
                                 {% else %}
                                     <li><a href="{% url 'Login' %}">Umów się na wizytę</a></li>
                                 {% endif %}

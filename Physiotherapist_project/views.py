@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.core.validators import ValidationError
 from django.views import View
 from django.urls import reverse_lazy
@@ -71,18 +71,32 @@ class LoadPrice(View):
 
 
 class Bookings(View):
-    def get(self, request):
-        form = Bookingform
-        return render(request, 'Physiotherapist_project/booking.html', context={"form": form})
+    def get(self, request, pk_booking=None, pk_user=None):
+        user = get_object_or_404(User, pk=pk_user)
+        if pk_booking is None:
+            booking = None
+        else:
+            booking = get_object_or_404(Booking, booking_id=pk_booking, user=user)
+        return render(request, 'Physiotherapist_project/booking.html', {'booking': booking, 'user': user})
 
-    def post(self, request):
-        form = Bookingform(data=request.POST)
+    def post(self, request, pk_booking=None, pk_user=None):
+        user = get_object_or_404(User, pk=pk_user)
+        if pk_booking is None:
+            booking = None
+        else:
+            booking = get_object_or_404(Booking, booking_id=pk_booking, user=user)
+
+        form = Bookingform(request.POST, instance=booking)
         if form.is_valid():
-            isinstance = form.save(commit=False)
-            isinstance.user = self.request.user
-            isinstance.save()
-            messages.success(request, 'Sprawdź zakładkę')
+            if booking is None:
+                save_booking = form.save(commit=False)
+                save_booking.user = user
+                save_booking.save()
             return render(request, 'Physiotherapist_project/index.html')
+        else:
+            return render(request, 'Physiotherapist_project/booking.html', {'booking': booking, 'user': user, 'form': form})
+
+
 
 
 class DeleteBooking(DeleteView):
