@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
+import configparser
 from pathlib import Path
+
+config = configparser.ConfigParser()
+config.read('config.init')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'physiotherapist_db',
         'USER': 'postgres',
-        'PASSWORD': 'ambrozja',
+        'PASSWORD': config.get('password', 'password'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
