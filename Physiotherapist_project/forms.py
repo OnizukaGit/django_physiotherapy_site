@@ -75,6 +75,18 @@ class Bookingform(forms.ModelForm):
             "date": "Data",
         }
 
+    def clean_date(self):
+        date = self.cleaned_data.get('date')
+
+        if date.minute != 0:
+            raise forms.ValidationError("Można rezerwować tylko od pełnej godziny.")
+
+        existing_bookings = Booking.objects.filter(date=date)
+        if existing_bookings.exists():
+            raise forms.ValidationError("Rezerwacja na tę godzinę jest już zajęta. Proszę wybrać inną godzinę.")
+
+        return date
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['product'].queryset = Product.objects.none()

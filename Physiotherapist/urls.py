@@ -17,7 +17,7 @@ from django.views.i18n import JavaScriptCatalog
 from django.contrib import admin
 from django.urls import path,re_path
 from Physiotherapist_project.views import Start,PriceList,BuyProduct,PageOne,PageTwo,PageThree,\
-    Bookings,Login,Logout,Register,UsersPanel,LoadProduct,LoadSession,LoadPrice,PhysiotherapistDetailsView,\
+    BookingVisit,Login,Logout,Register,UsersPanel,LoadProduct,LoadSession,LoadPrice,PhysiotherapistDetailsView,\
     DeleteBooking
 
 urlpatterns = [
@@ -32,7 +32,7 @@ urlpatterns = [
     path('page-one/', PageOne.as_view(), name="Page1"),
     path('page-two/', PageTwo.as_view(), name="Page2"),
     path('page-three/', PageThree.as_view(), name="Page3"),
-    path('booking/<int:pk_user>/', Bookings.as_view(), name="Booking"),
+    path('booking/<int:user_pk>/', BookingVisit.as_view(), name="Booking"),
     re_path('^username/(?P<username>.+)/$', UsersPanel.as_view(), name="UsersPanel"),
     path('ajax/product/', LoadProduct.as_view(), name='ajax_load_product'),
     path('ajax/session/', LoadSession.as_view(), name='ajax_load_session'),

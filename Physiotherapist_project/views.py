@@ -70,21 +70,21 @@ class LoadPrice(View):
         return render(request, 'Physiotherapist_project/price.html', {'price': price})
 
 
-class Bookings(View):
-    def get(self, request, pk_booking=None, pk_user=None):
-        user = get_object_or_404(User, pk=pk_user)
-        if pk_booking is None:
+class BookingVisit(View):
+    def get(self, request, booking_pk=None, user_pk=None):
+        user = get_object_or_404(User, pk=user_pk)
+        if booking_pk is None:
             booking = None
         else:
-            booking = get_object_or_404(Booking, booking_id=pk_booking, user=user)
+            booking = get_object_or_404(Booking, booking_id=booking_pk, user=user)
         return render(request, 'Physiotherapist_project/booking.html', {'booking': booking, 'user': user})
 
-    def post(self, request, pk_booking=None, pk_user=None):
-        user = get_object_or_404(User, pk=pk_user)
-        if pk_booking is None:
+    def post(self, request, booking_pk=None, user_pk=None):
+        user = get_object_or_404(User, pk=user_pk)
+        if booking_pk is None:
             booking = None
         else:
-            booking = get_object_or_404(Booking, booking_id=pk_booking, user=user)
+            booking = get_object_or_404(Booking, booking_id=booking_pk, user=user)
 
         form = Bookingform(request.POST, instance=booking)
         if form.is_valid():
